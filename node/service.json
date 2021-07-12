@@ -1,0 +1,15 @@
+{
+  "stack": "nodejs",
+  "memory": 1536,
+  "ttl": 30,
+  "timeout": 12,
+  "minReplicas": 2,
+  "maxReplicas": 100,
+  "workers": 1,
+  "routes": {
+    "easypostUpdate": {
+      "path": "/_v/api/easypost/update",
+      "public": true
+    }
+  }
+}
