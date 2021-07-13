@@ -126,7 +126,7 @@ export const resolvers = {
     createLabel: async (_: any, args: any, ctx: Context) => {
       const apps = new Apps(ctx.vtex)
       const app: string = getAppId()
-      const { clientKey, returnAddress } = await apps.getAppSettings(app)
+      const settings: any = await apps.getAppSettings(app)
       const {
         street1,
         street2,
@@ -153,6 +153,17 @@ export const resolvers = {
         phone,
       }
 
+      const returnAddress = {
+        street1: settings.street1,
+        street2: settings.street2,
+        city: settings.city,
+        state: settings.state,
+        zip: settings.zip,
+        country: settings.country,
+        name: settings.name,
+        phone: settings.phone,
+      }
+
       const argParcel = {
         height: parseFloat(height),
         length: parseFloat(length),
@@ -160,13 +171,14 @@ export const resolvers = {
         weight: parseFloat(weight),
       }
 
-      console.log('returnAddress', returnAddress)
+      console.log('settings', settings)
+      console.log('key', settings.clientKey)
       console.log('argAddress', argAddress)
       console.log('argParcel', argParcel)
 
       require('babel-polyfill')
       const Easypost = require('@easypost/api')
-      const api = new Easypost(clientKey)
+      const api = new Easypost(settings.clientKey)
 
       const toAddress = new api.Address(returnAddress)
       const fromAddress = new api.Address(argAddress)
@@ -184,14 +196,18 @@ export const resolvers = {
 
       let labelUrl
 
-      await shipment
-        .save()
-        .then((s: any) =>
-          s.buy(shipment.lowestRate()).then(console.log).catch(console.log)
-        )
-        .then(() => {
-          labelUrl = shipment.postage_label.label_url
-        })
+      try {
+        await shipment
+          .save()
+          .then((s: any) =>
+            s.buy(shipment.lowestRate()).then(console.log).catch(console.log)
+          )
+          .then(() => {
+            labelUrl = shipment.postage_label.label_url
+          })
+      } catch (e) {
+        console.log(e.error.error.errors)
+      }
 
       return { labelUrl }
     },
