@@ -1,0 +1,73 @@
+type Query {
+  config: Config @cacheControl(scope: PRIVATE)
+}
+
+type Mutation {
+  saveSettings(
+    title: String
+    clientKey: String
+    street1: String
+    street2: String
+    city: String
+    state: String
+    zip: String
+    country: String
+    name: String
+    phone: String
+  ): MutationResponse
+  createLabel(
+    street1: String
+    street2: String
+    city: String
+    state: String
+    zip: String
+    country: String
+    name: String
+    phone: String
+    height: Float
+    length: Float
+    width: Float
+    weight: Float
+  ): Label
+}
+
+type Config {
+  schema: Boolean
+  title: String
+  clientKey: String
+  street1: String
+  street2: String
+  city: String
+  state: String
+  zip: String
+  country: String
+  name: String
+  phone: String
+}
+
+type Label {
+  labelUrl: String
+}
+
+type Address {
+  street1: String
+  street2: String
+  city: String
+  state: String
+  zip: String
+  country: String
+  name: String
+  phone: String
+}
+
+type Parcel {
+  height: Float
+  length: Float
+  width: Float
+  weight: Float
+}
+
+type MutationResponse {
+  status: String
+  message: String
+}

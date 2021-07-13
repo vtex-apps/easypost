@@ -1,0 +1,14 @@
+query Config {
+  config {
+    title
+    clientKey
+    street1
+    street2
+    city
+    state
+    zip
+    country
+    name
+    phone
+  }
+}

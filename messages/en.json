@@ -1,9 +1,9 @@
 {
-  "admin-example.navigation.label-group": "Example admins",
+  "admin/navigation.label": "Easypost Integration",
   "admin-example.navigation.label-details": "Example details",
   "admin-example.navigation.label-table": "Example table",
-  "admin-example.navigation.search.kws": "test, mock, fake",
+  "admin.navigation.search.kws": "test, mock, fake",
   "admin-example.navigation.details.search.kws": "details, mock, test, hello",
-  "admin-example.navigation.table.search.kws": "table, mock, test, bye",
+  "admin.navigation..search.kws": "",
   "admin-example.hello-world": "Example Admin"
 }
