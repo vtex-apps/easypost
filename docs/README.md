@@ -8,7 +8,7 @@
 
 # Easypost Integration
 
-Easypost is a VTEX IO native solution that allows stores to create return labels. This should be used in conjunction with the [returns](https://github.com/vtex-apps/return-app) app for full functionality.
+Easypost is a VTEX IO integration that allows stores to create return labels. This should be used in conjunction with the [returns](https://github.com/vtex-apps/return-app) app for full functionality.
 
 ## Configuration
 ### Step 1 Installing the Easypost Integration app

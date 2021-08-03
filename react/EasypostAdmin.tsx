@@ -94,7 +94,10 @@ const EasypostAdmin: FC<any> = ({ data: { config }, intl }) => {
   console.log('config', config)
   console.log('state', state)
 
-  if (config && (!clientKey.length || !street1.length)) {
+  if (
+    (config?.clientKey && !clientKey.length) ||
+    (config?.street1 && !street1.length)
+  ) {
     setState({
       ...state,
       clientKey: config.clientKey,
@@ -209,8 +212,6 @@ const EasypostAdmin: FC<any> = ({ data: { config }, intl }) => {
                   country,
                   phone,
                 },
-              }).then(() => {
-                console.log('state', state)
               })
             }}
           >
