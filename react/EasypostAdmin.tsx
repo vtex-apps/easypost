@@ -59,6 +59,14 @@ const EasypostAdmin: FC<any> = ({ data: { config }, intl }) => {
       id: 'admin/settings.phone.label',
       defaultMessage: 'Phone Number',
     },
+    weightLabel: {
+      id: 'admin/settings.weight.label',
+      defaultMessage: 'Default Weight',
+    },
+    weightHelp: {
+      id: 'admin/settings.weight.help',
+      defaultMessage: 'Set a default parcel weight for return labels (oz)',
+    },
     saveLabel: {
       id: 'admin/settings.button.label',
       defaultMessage: 'Save',
@@ -75,6 +83,7 @@ const EasypostAdmin: FC<any> = ({ data: { config }, intl }) => {
     country: '',
     name: '',
     phone: '',
+    weight: 10,
   })
 
   const {
@@ -87,6 +96,7 @@ const EasypostAdmin: FC<any> = ({ data: { config }, intl }) => {
     zip,
     country,
     phone,
+    weight,
   } = state
 
   const [saveSettings, { loading: saveLoading }] = useMutation(SAVE_SETTINGS)
@@ -109,6 +119,7 @@ const EasypostAdmin: FC<any> = ({ data: { config }, intl }) => {
       country: config.country,
       name: config.name,
       phone: config.phone,
+      weight: config.weight,
     })
   }
 
@@ -196,6 +207,16 @@ const EasypostAdmin: FC<any> = ({ data: { config }, intl }) => {
             onChange={(e: any) => setState({ ...state, phone: e.target.value })}
           />
         </div>
+        <div className="mt4">
+          <Input
+            label={intl.formatMessage(messages.weightLabel)}
+            value={weight}
+            helpText={intl.formatMessage(messages.weightHelp)}
+            onChange={(e: any) =>
+              setState({ ...state, weight: e.target.value })
+            }
+          />
+        </div>
         <div className="mt6">
           <Button
             isLoading={saveLoading}
@@ -211,6 +232,7 @@ const EasypostAdmin: FC<any> = ({ data: { config }, intl }) => {
                   zip,
                   country,
                   phone,
+                  weight,
                 },
               })
             }}

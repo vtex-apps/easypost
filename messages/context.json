@@ -1,5 +1,18 @@
 {
   "admin-example.navigation.label": "Easypost Integration",
-  "admin-example.hello-world": "",
-  "appframe.navigation.example": ""
+  "admin/navigation.label": "Easypost Integration",
+  "admin/settings.label": "Settings",
+  "admin/settings.address.title": "Default Return Address",
+  "admin/settings.key.label": "Client Key",
+  "admin/settings.name.label": "Name or Company",
+  "admin/settings.street1.label": "Street Address",
+  "admin/settings.street2.label": "Address Line 2",
+  "admin/settings.city.label": "City",
+  "admin/settings.state.label": "State",
+  "admin/settings.zip.label": "Zip Code",
+  "admin/settings.country.label": "Country",
+  "admin/settings.phone.label": "Phone Number",
+  "admin/settings.weight.label": "Default Weight",
+  "admin/settings.weight.help": "Set a default parcel weight for return labels (oz)",
+  "admin/settings.button.label": "Save"
 }

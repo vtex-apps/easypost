@@ -14,6 +14,7 @@ type Mutation {
     country: String
     name: String
     phone: String
+    weight: Float
   ): MutationResponse
   createLabel(
     street1: String
@@ -24,10 +25,6 @@ type Mutation {
     country: String
     name: String
     phone: String
-    height: Float
-    length: Float
-    width: Float
-    weight: Float
   ): Label
 }
 
@@ -43,6 +40,7 @@ type Config {
   country: String
   name: String
   phone: String
+  weight: Float
 }
 
 type Label {
@@ -61,9 +59,6 @@ type Address {
 }
 
 type Parcel {
-  height: Float
-  length: Float
-  width: Float
   weight: Float
 }
 

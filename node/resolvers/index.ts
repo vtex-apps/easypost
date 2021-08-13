@@ -64,6 +64,7 @@ export const resolvers = {
         country: '',
         name: '',
         phone: '',
+        weight: 0,
       }
 
       if (!settings.title) {
@@ -113,6 +114,7 @@ export const resolvers = {
         country: args.country,
         name: args.name,
         phone: args.phone,
+        weight: args.weight,
       }
 
       try {
@@ -127,20 +129,7 @@ export const resolvers = {
       const apps = new Apps(ctx.vtex)
       const app: string = getAppId()
       const settings: any = await apps.getAppSettings(app)
-      const {
-        street1,
-        street2,
-        city,
-        state,
-        zip,
-        country,
-        name,
-        phone,
-        height,
-        length,
-        width,
-        weight,
-      } = args
+      const { street1, street2, city, state, zip, country, name, phone } = args
 
       const argAddress = {
         street1,
@@ -165,10 +154,7 @@ export const resolvers = {
       }
 
       const argParcel = {
-        height: parseFloat(height),
-        length: parseFloat(length),
-        width: parseFloat(width),
-        weight: parseFloat(weight),
+        weight: parseFloat(settings.weight),
       }
 
       console.log('settings', settings)
