@@ -9,6 +9,7 @@ mutation SaveSettings(
   $country: String
   $name: String
   $phone: String
+  $weight: String
 ) {
   saveSettings(
     title: $title
@@ -21,6 +22,7 @@ mutation SaveSettings(
     country: $country
     name: $name
     phone: $phone
+    weight: $weight
   ) {
     status
     message

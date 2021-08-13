@@ -7,9 +7,6 @@ mutation CreateLabel(
   $country: String
   $name: String
   $phone: String
-  $height: Float
-  $length: Float
-  $width: Float
   $weight: Float
 ) {
   createLabel(
@@ -21,9 +18,6 @@ mutation CreateLabel(
     country: $country
     name: $name
     phone: $phone
-    height: $height
-    length: $length
-    width: $width
     weight: $weight
   ) {
     labelUrl
