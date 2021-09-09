@@ -101,9 +101,6 @@ const EasypostAdmin: FC<any> = ({ data: { config }, intl }) => {
 
   const [saveSettings, { loading: saveLoading }] = useMutation(SAVE_SETTINGS)
 
-  console.log('config', config)
-  console.log('state', state)
-
   if (
     (config?.clientKey.length && !clientKey.length) ||
     (config?.street1.length && !street1.length)

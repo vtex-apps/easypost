@@ -9,7 +9,7 @@ mutation SaveSettings(
   $country: String
   $name: String
   $phone: String
-  $weight: String
+  $weight: Float
 ) {
   saveSettings(
     title: $title
