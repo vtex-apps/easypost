@@ -88,8 +88,6 @@ export const resolvers = {
         settings.schema = !schemaError
         settings.schemaVersion = !schemaError ? SCHEMA_VERSION : null
 
-        console.log(settings)
-
         await apps.saveAppSettings(app, settings)
       }
 
@@ -154,15 +152,9 @@ export const resolvers = {
       }
 
       const weight = parseFloat(settings.weight)
-      console.log('weight', settings.weight)
       const argParcel = {
         weight,
       }
-
-      console.log('settings', settings)
-      console.log('key', settings.clientKey)
-      console.log('argAddress', argAddress)
-      console.log('argParcel', argParcel)
 
       require('babel-polyfill')
       const Easypost = require('@easypost/api')
@@ -171,10 +163,6 @@ export const resolvers = {
       const toAddress = new api.Address(returnAddress)
       const fromAddress = new api.Address(argAddress)
       const parcel = new api.Parcel(argParcel)
-
-      console.log('toAddress', toAddress)
-      console.log('fromAddress', fromAddress)
-      console.log('parcel', parcel)
 
       const shipment = new api.Shipment({
         to_address: toAddress,
@@ -194,7 +182,7 @@ export const resolvers = {
             labelUrl = shipment.postage_label.label_url
           })
       } catch (e) {
-        console.log(e.error.error.errors)
+        // console.log(e.error.error.errors)
       }
 
       return { labelUrl }
