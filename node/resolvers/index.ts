@@ -153,8 +153,10 @@ export const resolvers = {
         phone: settings.phone,
       }
 
+      const weight = parseFloat(settings.weight)
+      console.log('weight', settings.weight)
       const argParcel = {
-        weight: parseFloat(settings.weight),
+        weight,
       }
 
       console.log('settings', settings)
