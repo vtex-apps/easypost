@@ -39,5 +39,5 @@
     "prettier": "^1.16.4",
     "vtex.styleguide": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.144.0/public/@types/vtex.styleguide"
   },
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
